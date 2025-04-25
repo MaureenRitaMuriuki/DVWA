@@ -1,0 +1,26 @@
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+# If you are having problems connecting to the MySQL database and all of the variables below are correct
+# try changing the 'db_server' variable from localhost to 127.0.0.1. Fixes a problem due to sockets.
+#   Thanks to @digininja for the fix.
+
+# Database management system to use
+$DBMS = getenv('DBMS') ?: 'MySQL';
+#$DBMS = 'PGSQL'; // Currently disabled
+
+# Database variables
+#   WARNING: The database specified under db_database WILL BE ENTIRELY DELETED during setup.
+#   Please use a database dedicated to DVWA.
+#
+# If you are using MariaDB then you cannot use root, you must use create a dedicated DVWA user.
+#   See README.md for more information on this.
+$_DVWA = array();
+$_DVWA[ 'db_server' ]   = getenv('DB_SERVER') ?: '127.0.0.1';   // Database server address
+$_DVWA[ 'db_database' ] = getenv('DB_DATABASE') ?: 'dvwa';      // Database name
+$_DVWA[ 'db_user' ]     = getenv('DB_USER') ?: 'dvwa';          // Database username
+$_DVWA[ 'db_password' ] = getenv('DB_PASSWORD') ?: 'yourpassword';  // Database password (replace 'yourpassword' with your actual password)
+
+$_DVWA[ 'security_level' ] = 0; // Set default security level
+?>
